@@ -27,7 +27,7 @@ export default function SignupPage() {
     setLoading(true)
     setError("")
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/signup", form)
+      const res = await axios.post("https://invoiceiq-backend-zjma.onrender.com", form)
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("name", res.data.name)
       navigate("/dashboard")
