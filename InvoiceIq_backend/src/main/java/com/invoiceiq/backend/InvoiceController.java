@@ -11,6 +11,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "https://invoiceiq-backend-zjma.onrender.com"
+})
 @RestController
 @RequestMapping("/api/invoices")
 @RequiredArgsConstructor
@@ -62,6 +67,7 @@ public class InvoiceController {
         invoice.setStatus("PAID");
         return repo.save(invoice);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         repo.deleteById(id);
