@@ -3,7 +3,7 @@ import axios from "axios"
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import { useNavigate } from "react-router-dom"
 
-const API = "http://localhost:8080/api/invoices"
+const API = "https://invoiceiq-backend-zjma.onrender.com/api/invoices"
 
 const getAuthHeaders = () => ({
   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
