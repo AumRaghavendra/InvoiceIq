@@ -12,7 +12,7 @@ const Logo = () => {
       </svg>
       <span className="text-xl font-bold" style={{ color: "#111827" }}>InvoiceIQ</span>
     </div>
-  )
+   )
 }
 
 export default function SignupPage() {
