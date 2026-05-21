@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-const API = "http://localhost:8080/api/clients"
-
+const API = "https://invoiceiq-backend-zjma.onrender.com/api/clients"
 const getAuthHeaders = () => ({
   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
 })
