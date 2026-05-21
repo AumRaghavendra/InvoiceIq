@@ -12,7 +12,7 @@ const Logo = () => {
       </svg>
       <span className="text-xl font-bold" style={{ color: "#111827" }}>InvoiceIQ</span>
     </div>
-   )
+  )
 }
 
 export default function SignupPage() {
@@ -27,7 +27,7 @@ export default function SignupPage() {
     setLoading(true)
     setError("")
     try {
-      const res = await axios.post("https://invoiceiq-backend-zjma.onrender.com/api/auth/signup", form)
+axios.post("https://invoiceiq-backend-zjma.onrender.com/api/auth/signup", form)
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("name", res.data.name)
       navigate("/dashboard")
