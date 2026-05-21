@@ -11,11 +11,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = {
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "https://invoiceiq-backend-zjma.onrender.com"
-})
+
+        @CrossOrigin(origins = {
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "https://invoiceiq-backend-zjma.onrender.com",
+                "https://invoice-kciudzdy9-raghav-s-projects10.vercel.app"
+        })
 @RestController
 @RequestMapping("/api/invoices")
 @RequiredArgsConstructor
