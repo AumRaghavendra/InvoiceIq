@@ -3,7 +3,6 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 const API = "https://invoiceiq-backend-zjma.onrender.com/api/clients"
-
 const getAuthHeaders = () => ({
   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
 })

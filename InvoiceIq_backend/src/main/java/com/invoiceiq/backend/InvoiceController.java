@@ -11,13 +11,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-
-        @CrossOrigin(origins = {
-                "http://localhost:5173",
-                "http://localhost:5174",
-                "https://invoiceiq-backend-zjma.onrender.com",
-                "https://invoice-kciudzdy9-raghav-s-projects10.vercel.app"
-        })
 @RestController
 @RequestMapping("/api/invoices")
 @RequiredArgsConstructor
@@ -92,10 +85,13 @@ public class InvoiceController {
         String draft = body.get("draft");
         String subject = "Payment Reminder — " + invoice.getInvoiceCode();
 
-        emailService.sendEmail(invoice.getClientEmail(), subject, draft);
-
-        invoice.setLastContactedAt(LocalDateTime.now());
-        repo.save(invoice);
-        return ResponseEntity.ok(Map.of("message", "Email sent successfully"));
+        try {
+            emailService.sendEmail(invoice.getClientEmail(), subject, draft);
+            invoice.setLastContactedAt(LocalDateTime.now());
+            repo.save(invoice);
+            return ResponseEntity.ok(Map.of("message", "Email sent successfully"));
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(Map.of("error", "Failed to send email: " + e.getMessage()));
+        }
     }
 }
